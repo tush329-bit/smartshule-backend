@@ -1,0 +1,73 @@
+# ==========================================================================
+# DEPENDENCIES
+# ==========================================================================
+# Never commit installed packages. They are recreated via `npm install`
+node_modules/
+jspm_packages/
+
+# ==========================================================================
+# ENVIRONMENT VARIABLES (CRITICAL SECURITY)
+# ==========================================================================
+# NEVER commit secrets, DB passwords, API keys, or JWT secrets.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================================================================
+# LOGS & TEMP FILES
+# ==========================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ==========================================================================
+# EDITOR / IDE DIRECTORIES & FILES
+# ==========================================================================
+# Ignore VS Code, IntelliJ, and Vim swap files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# ==========================================================================
+# OS GENERATED FILES
+# ==========================================================================
+# Ignore hidden OS files (Mac, Windows, Linux)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==========================================================================
+# TESTING & COVERAGE
+# ==========================================================================
+coverage/
+*.lcov
+.nyc_output
+
+# ==========================================================================
+# BUILD / DIST (If applicable)
+# ==========================================================================
+dist/
+build/
+
+# ==========================================================================
+# UPLOADED FILES
+# ==========================================================================
+# Even though we use Multer's memoryStorage, it's best practice to ignore 
+# any folders where user uploads might be saved to disk.
+uploads/
+public/uploads/
