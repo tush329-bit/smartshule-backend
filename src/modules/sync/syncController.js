@@ -16,17 +16,16 @@ const syncBatch = async (req, res) => {
     for (const op of operations) {
       if (op.type === 'mark') {
         const { studentId, subjectId, examId, score } = op.data;
-        
         // Insert mark, ensuring it belongs to the user's school
         await db.query(
           `INSERT INTO marks (student_id, subject_id, exam_id, score, school_id) 
            VALUES ($1, $2, $3, $4, $5) 
-           ON CONFLICT (student_id, subject_id, exam_id) DO UPDATE SET score = EXCLUDED.score`,
+           ON CONFLICT DO NOTHING`, // Prevents duplicates if somehow sent twice
           [studentId, subjectId, examId, score, school_id]
         );
         processedCount++;
       } 
-      // You can add more types here later: 'attendance', 'note', etc.
+      // You can add more types here: 'attendance', 'note', etc.
     }
 
     res.status(200).json({ 

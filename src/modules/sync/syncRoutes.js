@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const { syncBatch } = require('./syncController');
 const { protect } = require('../../middleware/authMiddleware');
-const idempotency = require('../../middleware/idempotency'); // 🛡️ Phase 3 Security!
+const idempotency = require('../../middleware/idempotency'); // 🛡️ Import Phase 3 security!
 
 router.use(protect);
 
